@@ -1,0 +1,226 @@
+.education-section {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: 0 auto;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.edu-container {
+  position: relative;
+  z-index: 1;
+}
+
+.edu-heading {
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+  color: var(--textColor);
+}
+
+.edu-heading span {
+  color: var(--secondaryAccent);
+}
+
+.edu-subheading {
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  opacity: 0.5;
+  margin: 0 0 60px 0;
+  color: var(--textColor);
+}
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Timeline line */
+.edu-list::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 60px;
+  bottom: 60px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--secondaryAccent),
+    var(--secondaryAccent) 6px,
+    transparent 6px,
+    transparent 14px
+  );
+  opacity: 0.4;
+}
+
+.edu-card {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  background-color: #fdf8f0;
+  border-radius: 16px;
+  padding: 28px 32px;
+  border: 2px solid transparent;
+  transition: border-color 0.25s, transform 0.2s;
+  position: relative;
+}
+
+.edu-card:hover {
+  border-color: var(--secondaryAccent);
+  transform: translateX(6px);
+}
+
+.edu-emoji {
+  font-size: 36px;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background-color: var(--backgroundColor);
+  border: 2px dashed var(--secondaryAccent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.edu-card-body {
+  flex: 1;
+}
+
+.edu-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.edu-degree {
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+  color: var(--textColor);
+}
+
+.edu-institution {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  opacity: 0.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.edu-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.edu-grade {
+  font-family: "Fredoka", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: var(--secondaryAccent);
+  color: var(--backgroundColor);
+  padding: 2px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.edu-period {
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+  opacity: 0.5;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.edu-note {
+  font-family: "Caveat", cursive;
+  font-size: 17px;
+  opacity: 0.55;
+  margin: 12px 0 0 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .edu-card-top {
+    flex-direction: column;
+  }
+  .edu-right {
+    align-items: flex-start;
+  }
+  .edu-list::before {
+    display: none;
+  }
+  .edu-card {
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+.edu-bg-text {
+  position: absolute;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(60px, 10vw, 130px);
+  font-weight: 700;
+  color: var(--secondaryAccent);
+  opacity: 0;
+  right: 3%;
+  top: 10%;
+  transform: rotate(4deg);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  animation: eduBgTextAppear 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes eduBgTextAppear {
+  0% {
+    opacity: 0;
+    transform: rotate(4deg) translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 0.07;
+    transform: rotate(3deg) translateY(0) scale(1);
+  }
+}
+
+.edu-doodle-star {
+  position: absolute;
+  font-size: 24px;
+  color: var(--secondaryAccent);
+  opacity: 0.35;
+  top: 20%;
+  right: 8%;
+  pointer-events: none;
+  animation: eduFloatDoodle 4s ease-in-out infinite;
+}
+
+.edu-doodle-circle {
+  position: absolute;
+  font-size: 40px;
+  color: var(--secondaryAccent);
+  opacity: 0.12;
+  bottom: 15%;
+  left: 3%;
+  pointer-events: none;
+  animation: eduFloatDoodle 6s ease-in-out infinite reverse;
+}
+
+@keyframes eduFloatDoodle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+}

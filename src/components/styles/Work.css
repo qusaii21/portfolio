@@ -1,0 +1,306 @@
+/* ══════════════════════════════════════
+   WORK SECTION — SCRAPBOOK GRID
+   ══════════════════════════════════════ */
+
+.work-section {
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.work-section h2 {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  font-family: "Fredoka", sans-serif;
+  color: var(--textColor);
+  margin: 0 0 60px 0;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.work-section h2 > span {
+  color: var(--tertiaryAccent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.work-container {
+  margin: auto;
+}
+
+/* ── 3x2 Grid ── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ── See All Works ── */
+.work-see-all {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.see-all-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--backgroundColor);
+  background: var(--tertiaryAccent);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: "DM Sans", sans-serif;
+}
+
+.see-all-btn:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 4px 6px 0px rgba(0, 0, 0, 0.15);
+  color: var(--backgroundColor);
+}
+
+/* ══════════════════════════════════════
+   SCRAPBOOK CARD DESIGN
+   ══════════════════════════════════════ */
+
+.scrap-card {
+  border-radius: 6px;
+  padding: 24px 22px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 3px 4px 0px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+}
+
+/* Rotation per card */
+.work-grid .scrap-card:nth-child(1) { transform: rotate(-1deg); }
+.work-grid .scrap-card:nth-child(2) { transform: rotate(0.7deg); }
+.work-grid .scrap-card:nth-child(3) { transform: rotate(-0.4deg); }
+.work-grid .scrap-card:nth-child(4) { transform: rotate(1.2deg); }
+.work-grid .scrap-card:nth-child(5) { transform: rotate(-0.8deg); }
+.work-grid .scrap-card:nth-child(6) { transform: rotate(0.5deg); }
+
+.scrap-card:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: 6px 10px 0px rgba(0, 0, 0, 0.14);
+}
+
+/* ── Tint variations ── */
+.scrap-tint-1 { background-color: #fef5ee; }
+.scrap-tint-2 { background-color: #eef8f6; }
+.scrap-tint-3 { background-color: #fef0f4; }
+.scrap-tint-4 { background-color: #f0f4fe; }
+.scrap-tint-5 { background-color: #f5feee; }
+
+/* ── Tape strip ── */
+.scrap-tape {
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 50px;
+  height: 22px;
+  background: rgba(232, 93, 38, 0.25);
+  transform: rotate(3deg);
+  border-radius: 2px;
+  z-index: 2;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 4px,
+    rgba(255,255,255,0.3) 4px,
+    rgba(255,255,255,0.3) 5px
+  );
+}
+
+/* ── Rubber stamp number ── */
+.scrap-stamp {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 38px;
+  height: 38px;
+  border: 3px dashed var(--accentColor);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-12deg);
+  opacity: 0.45;
+  z-index: 2;
+}
+
+.scrap-stamp span {
+  font-family: "Fredoka", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accentColor);
+  transform: rotate(12deg);
+}
+
+/* ── Project Image ── */
+.scrap-image {
+  width: 100%;
+  height: 140px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(26, 18, 8, 0.04);
+  margin-top: 8px;
+  position: relative;
+  border: 1px solid rgba(26, 18, 8, 0.08);
+}
+
+.scrap-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) contrast(1.05);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.scrap-card:hover .scrap-image img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.03);
+}
+
+/* ── Washi tape category ── */
+.scrap-washi {
+  align-self: flex-start;
+  padding: 3px 12px;
+  background: var(--secondaryAccent);
+  color: var(--backgroundColor);
+  font-family: "Caveat", cursive;
+  font-size: 14px;
+  font-weight: 700;
+  transform: rotate(-1.5deg);
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.08);
+  margin-top: -8px;
+  margin-left: -4px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Card body ── */
+.scrap-body {
+  flex: 1;
+}
+
+.scrap-title {
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 700;
+  color: var(--textColor);
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.scrap-desc {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12.5px;
+  color: rgba(26, 18, 8, 0.6);
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Tech tags — hand-torn labels ── */
+.scrap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.scrap-tag {
+  font-family: "Caveat", cursive;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--textColor);
+  background: rgba(26, 18, 8, 0.06);
+  padding: 2px 9px;
+  border-radius: 3px 8px 4px 6px;
+  border-bottom: 2px solid rgba(26, 18, 8, 0.1);
+  letter-spacing: 0.3px;
+}
+
+.scrap-tag:nth-child(odd) {
+  border-radius: 6px 3px 7px 4px;
+  transform: rotate(-0.5deg);
+}
+
+.scrap-tag:nth-child(even) {
+  border-radius: 4px 7px 3px 6px;
+  transform: rotate(0.5deg);
+}
+
+/* ── Repo link ── */
+.scrap-link {
+  font-family: "Caveat", cursive;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accentColor);
+  text-decoration: none;
+  display: inline-block;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(26, 18, 8, 0.12);
+  transition: opacity 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.scrap-link:hover {
+  opacity: 0.7;
+  color: var(--accentColor);
+}
+
+/* ── Paper grain overlay ── */
+.scrap-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.scrap-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .work-section {
+    padding: 80px 0 60px;
+  }
+  
+  .work-section h2 {
+    margin-bottom: 40px;
+  }
+
+  .scrap-image {
+    height: 120px;
+  }
+}

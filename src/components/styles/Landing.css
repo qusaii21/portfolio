@@ -1,0 +1,785 @@
+/* ============================================
+   LANDING — dramatic, editorial, full-canvas
+   ============================================ */
+
+/* Mobile Photo - hidden by default, shown only on mobile */
+.mobile-photo {
+  display: none;
+}
+
+/* ── Noise/grain texture overlay — REMOVED for playful design ── */
+
+/* Remove mobile photo and ensure 3D character is always hidden on mobile */
+@media only screen and (max-width: 768px) {
+  .character-model {
+    display: none !important;
+  }
+
+  .landing-section,
+  .landing-container {
+    height: auto !important;
+    min-height: 100vh;
+    max-width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    padding-bottom: 40px;
+  }
+
+  .landing-intro {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    padding-top: 70px;
+    margin-bottom: 10px;
+    z-index: 10;
+    text-align: left;
+    width: 100% !important;
+    order: 1;
+    height: auto !important;
+  }
+
+  .landing-intro h2 {
+    font-size: 12px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .landing-intro h1,
+  .landing-name .name-first,
+  .landing-name .name-last {
+    word-spacing: 0.05em;
+    font-size: clamp(36px, 10vw, 52px) !important;
+    line-height: 1.05 !important;
+    margin: 0;
+    letter-spacing: -1.5px !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal !important;
+  }
+
+  .landing-name .name-last::after {
+    width: 40px;
+    height: 3px;
+    margin-top: 8px;
+  }
+
+  .landing-info {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    text-align: left;
+    margin-top: 0;
+    z-index: 10;
+    background: transparent;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    height: auto !important;
+    width: 100% !important;
+    order: 3;
+  }
+
+  .landing-info h3 {
+    text-align: left;
+    display: none;
+  }
+
+  .landing-info h2,
+  h2.landing-info-h2,
+  .landing-h2-1,
+  .landing-h2-info {
+    position: static !important;
+    display: block;
+    width: auto;
+    margin: 0 !important;
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+    white-space: normal;
+    text-align: left;
+    height: auto !important;
+    transform: none !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .landing-h2-1 {
+    font-size: 28px !important;
+    color: var(--accentColor);
+    font-weight: 700;
+    letter-spacing: -0.5px !important;
+  }
+
+  .landing-h2-info {
+    font-size: 22px !important;
+    color: var(--textColor);
+    font-weight: 600;
+  }
+
+  .landing-info-h2::after {
+    display: none;
+  }
+
+  /* Show mobile photo */
+  .mobile-photo {
+    display: block;
+    position: relative !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+    order: 2;
+    border-radius: 12px;
+    overflow: hidden;
+    -webkit-mask-image: none;
+    mask-image: none;
+    pointer-events: none;
+    transform: none !important;
+  }
+
+  .mobile-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    filter: none;
+  }
+
+  /* Hide doodles on mobile for cleaner look */
+  .doodle,
+  .blob {
+    display: none;
+  }
+}
+
+/* ── Base ── */
+.landing-section {
+  width: 100%;
+  max-width: var(--cMaxWidth);
+  margin: auto;
+  position: relative;
+  height: var(--vh);
+}
+
+.landing-container {
+  width: var(--cWidth);
+  margin: auto;
+  height: 100%;
+  position: relative;
+  max-width: var(--cMaxWidth);
+}
+
+/* ── Ambient blobs ── */
+.landing-circle1 {
+  top: 0%;
+  left: 0%;
+  z-index: 15;
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  background-color: #E85D26;
+  box-shadow: inset -50px 40px 60px rgba(200, 168, 75, 0.55);
+  filter: blur(70px);
+  border-radius: 50%;
+  animation: loadingCircle 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform: translate(-95%, -75%) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-95%, -75%) rotateZ(360deg);
+  }
+}
+
+.landing-circle2 {
+  top: 50%;
+  right: 0%;
+  transform: translate(calc(100% - 2px), -50%);
+  z-index: 9;
+  position: fixed;
+  display: none;
+  width: 320px;
+  height: 320px;
+  background-color: #C8A84B;
+  box-shadow: inset -50px 40px 50px rgba(42, 122, 75, 0.45);
+  filter: blur(60px);
+  border-radius: 50%;
+  animation: loadingCircle2 6s linear infinite;
+  opacity: 0.65;
+}
+
+@keyframes loadingCircle2 {
+  100% {
+    transform: translate(calc(100% - 2px), -50%) rotate(360deg);
+  }
+}
+
+/* ── Nav fade ── */
+.nav-fade {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 130px;
+  background-image: linear-gradient(0deg,
+      transparent,
+      var(--backgroundColor) 70%);
+  pointer-events: none;
+  z-index: 12;
+  opacity: 0;
+  left: 0;
+}
+
+/* ── Character ── */
+.landing-video,
+.landing-image {
+  position: absolute;
+  bottom: 0;
+  height: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.landing-image img {
+  height: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+.character-rim {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  z-index: 1;
+  background-color: #E85D26;
+  box-shadow: inset 66px 35px 85px 0px rgba(200, 168, 75, 0.55);
+  filter: blur(55px);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%) scale(1.4);
+  opacity: 0;
+}
+
+.character-model {
+  height: 80%;
+  height: 80vh;
+  position: absolute;
+  max-width: 1920px;
+  max-height: 1080px;
+  transform: translateX(-50%);
+  width: 100%;
+  left: 50%;
+  z-index: 0;
+  bottom: 50px;
+  pointer-events: inherit;
+}
+
+.character-model::after {
+  content: "";
+  width: 100vw;
+  height: 250px;
+  background-image: linear-gradient(to bottom,
+      transparent,
+      var(--backgroundColor) 70%);
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
+}
+
+.character-model::before {
+  content: "";
+  width: 100vw;
+  height: 700px;
+  background-color: var(--backgroundColor);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  position: absolute;
+}
+
+.character-loaded .character-rim {
+  animation: backlight 3s forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.character-model canvas {
+  position: relative;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.character-hover {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* ── INTRO — left side name block ── */
+.landing-intro {
+  position: absolute;
+  z-index: 12;
+  top: 5%;
+  left: 20px;
+}
+
+/* Greeting label */
+.landing-intro h2 {
+  margin: 0;
+  margin-bottom: 8px;
+  color: var(--accentColor);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: "DM Sans", sans-serif;
+  display: block;
+}
+
+/* Big name */
+.landing-name {
+  margin: 0;
+}
+
+.landing-name .name-first,
+.landing-name .name-last {
+  margin: 0;
+  letter-spacing: -2px;
+  font-size: clamp(32px, 3vw, 60px);
+  line-height: 1;
+  font-weight: 800;
+  font-family: "Fredoka", sans-serif;
+  color: var(--textColor);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.landing-name .name-last {
+  color: var(--textColor);
+}
+
+.landing-name .name-last::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accentColor), var(--secondaryAccent));
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+/* ── INFO — right side title block ── */
+.landing-info {
+  position: absolute;
+  right: 3%;
+  bottom: 35%;
+  top: inherit;
+  z-index: 12;
+  text-align: left;
+}
+
+/* "An" label */
+.landing-info h3 {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(26, 18, 8, 0.5);
+  margin: 0;
+  margin-bottom: 6px;
+  font-family: "DM Sans", sans-serif;
+}
+
+/* Title lines */
+.landing-info h2 {
+  margin: 0;
+  margin-top: 2px;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.15;
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  color: var(--textColor);
+}
+
+.landing-h2-info {
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--textColor);
+}
+
+.landing-h2-info-1 {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+/* Big accent title — "AI ENGINEER" */
+h2.landing-info-h2 {
+  color: var(--accentColor);
+  font-size: 38px;
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  position: relative;
+  letter-spacing: -1px;
+}
+
+.landing-h2-2 {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+/* Gradient fade mask — reduced opacity so text is still readable */
+.landing-info-h2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-image: linear-gradient(0deg,
+      var(--backgroundColor) 10%,
+      rgba(245, 240, 232, 0) 60%);
+  top: 0;
+  left: 0;
+}
+
+/* ── RESPONSIVE ── */
+
+@media screen and (min-width: 500px) {
+  .landing-circle2 {
+    display: block;
+  }
+
+  .character-model {
+    z-index: 0;
+  }
+
+  .landing-info h3 {
+    font-size: 12px;
+  }
+
+  .landing-intro h2 {
+    font-size: 12px;
+  }
+
+  .landing-name .name-first, .landing-name .name-last {
+    font-size: clamp(32px, 3vw, 48px);
+    line-height: 0.9;
+    letter-spacing: -2px;
+  }
+
+  .landing-info h2 {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 38px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .character-model {
+    height: 80vh;
+  }
+
+  .landing-intro h2 {
+    font-size: 12px;
+  }
+
+  .landing-name .name-first, .landing-name .name-last {
+    font-size: clamp(38px, 3.5vw, 56px);
+    line-height: 0.9;
+    letter-spacing: -2px;
+  }
+
+  .landing-info h3 {
+    font-size: 12px;
+  }
+
+  .landing-info h2 {
+    font-size: 38px;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 46px;
+    letter-spacing: -2px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .character-model {
+    height: 100vh;
+    bottom: 0;
+    z-index: 11;
+    position: fixed;
+  }
+
+  .character-model::after,
+  .character-model::before {
+    display: none;
+  }
+
+  .landing-intro {
+    top: 38%;
+    left: 3%;
+    right: auto;
+    transform: translateY(-50%);
+  }
+
+  .landing-name .name-first, .landing-name .name-last {
+    font-size: 2.8vw;
+    letter-spacing: -2px;
+  }
+
+  .landing-info {
+    bottom: auto;
+    top: 50%;
+    z-index: 12;
+    text-align: left;
+    transform: translateY(-50%);
+    right: 3%;
+    left: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .landing-intro {
+    top: 38%;
+    left: 3%;
+    right: auto;
+    transform: translateY(-50%);
+  }
+
+  .landing-name .name-first, .landing-name .name-last {
+    font-size: 3vw;
+    letter-spacing: -3px;
+  }
+
+  .landing-info {
+    bottom: auto;
+    top: 50%;
+    z-index: 12;
+    text-align: left;
+    transform: translateY(-50%);
+    right: 3%;
+    left: auto;
+  }
+
+  .landing-info h2 {
+    font-size: 44px;
+    letter-spacing: -2px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 54px;
+    letter-spacing: -2px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .landing-intro h2 {
+    font-size: 13px;
+    letter-spacing: 4px;
+  }
+
+  .landing-name .name-first, .landing-name .name-last {
+    font-size: 3.2vw;
+    line-height: 0.88;
+    letter-spacing: -3px;
+  }
+
+  .landing-info h3 {
+    font-size: 13px;
+  }
+
+  .landing-info h2 {
+    font-size: 52px;
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 64px;
+    letter-spacing: -3px;
+  }
+}
+
+
+
+
+
+/* Doodles */
+.doodle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  font-style: normal;
+  z-index: 0;
+  color: var(--accentColor);
+  opacity: 0.5;
+}
+.doodle-star-1 {
+  font-size: 32px;
+  top: 15%;
+  left: 10%;
+  animation: floatDoodle 4s ease-in-out infinite;
+}
+.doodle-circle-1 {
+  font-size: 60px;
+  top: 60%;
+  left: 5%;
+  animation: floatDoodle 6s ease-in-out infinite reverse;
+  opacity: 0.2;
+}
+.doodle-squiggle {
+  font-size: 48px;
+  bottom: 20%;
+  right: 10%;
+  animation: floatDoodle 5s ease-in-out infinite;
+}
+.doodle-star-2 {
+  font-size: 22px;
+  top: 30%;
+  right: 20%;
+  animation: floatDoodle 3.5s ease-in-out infinite reverse;
+}
+
+@keyframes floatDoodle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(10deg); }
+}
+
+/* Colored blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-1 {
+  width: 180px;
+  height: 180px;
+  background-color: var(--accentColor);
+  opacity: 0.08;
+  top: 10%;
+  right: 15%;
+  animation: blobPulse 6s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 120px;
+  height: 120px;
+  background-color: var(--secondaryAccent);
+  opacity: 0.1;
+  bottom: 25%;
+  left: 8%;
+  animation: blobPulse 8s ease-in-out infinite reverse;
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Additional doodle positions */
+.doodle-arrow {
+  font-size: 36px;
+  top: 70%;
+  right: 25%;
+  animation: floatDoodle 4.5s ease-in-out infinite;
+  transform: rotate(-20deg);
+  opacity: 0.4;
+}
+
+.doodle-dot-1 {
+  font-size: 12px;
+  top: 25%;
+  left: 25%;
+  opacity: 0.6;
+  color: var(--accentColor);
+  animation: floatDoodle 3s ease-in-out infinite;
+}
+
+.doodle-dot-2 {
+  font-size: 8px;
+  top: 28%;
+  left: 27%;
+  opacity: 0.4;
+  color: var(--secondaryAccent);
+  animation: floatDoodle 3.5s ease-in-out infinite reverse;
+}
+
+.doodle-dot-3 {
+  font-size: 16px;
+  bottom: 35%;
+  right: 30%;
+  opacity: 0.3;
+  color: var(--tertiaryAccent);
+  animation: floatDoodle 5s ease-in-out infinite;
+}
+
+.doodle-cross {
+  font-size: 20px;
+  top: 45%;
+  left: 3%;
+  opacity: 0.3;
+  color: var(--secondaryAccent);
+  animation: spinDoodle 8s linear infinite;
+}
+
+.doodle-ring {
+  font-size: 40px;
+  bottom: 12%;
+  left: 20%;
+  opacity: 0.15;
+  color: var(--tertiaryAccent);
+  animation: floatDoodle 7s ease-in-out infinite;
+}
+
+@keyframes spinDoodle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Landing intro: name gets chunky feel */
+.landing-name .name-first,
+.landing-name .name-last {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Remove the blur circles — they clash with light bg */
+.landing-circle1, .landing-circle2 {
+  display: none !important;
+}

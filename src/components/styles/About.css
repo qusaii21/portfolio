@@ -1,0 +1,229 @@
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  place-items: center;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  width: var(--cWidth);
+  margin: auto;
+}
+
+.about-me {
+  padding: 40px 0px;
+  padding-bottom: 0;
+  width: 100%;
+  max-width: calc(100% - 15px);
+  position: relative;
+}
+
+/* Vertical accent bar */
+.about-me::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50px;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accentColor), var(--secondaryAccent), transparent);
+  border-radius: 2px;
+  display: none;
+}
+
+/* "ABOUT ME" label */
+.about-me h3 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: var(--accentColor);
+  margin-bottom: 20px;
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+.about-me h3:hover {
+  text-decoration: none;
+}
+
+.about-me p {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.2px;
+  word-spacing: 1px;
+  color: var(--textColor);
+  font-family: "DM Sans", sans-serif;
+}
+
+.about-me .split-word {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.about-me .split-line {
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .about-section {
+    justify-content: center;
+  }
+
+  .about-me {
+    width: 500px;
+  }
+
+  .about-me h3 {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  .about-me p {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .about-me {
+    width: 500px;
+    max-width: calc(100% - 70px);
+    transform: translateY(0%);
+  }
+
+  .about-me::before {
+    display: block;
+  }
+
+  .about-me h3 {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  .about-me p {
+    font-size: 32px;
+    line-height: 1.38;
+  }
+
+  .about-section {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .about-section {
+    width: var(--cWidth);
+    justify-content: right;
+    max-width: 1920px;
+    height: var(--vh);
+    padding: 0px;
+    opacity: 1;
+  }
+
+  .about-me {
+    padding: 0px;
+    width: 50%;
+  }
+
+  .about-me p {
+    font-size: 1.85vw;
+    line-height: 1.4;
+  }
+}
+
+@media only screen and (min-width: 1950px) {
+  .about-me p {
+    font-size: 2.4rem;
+    line-height: 1.38;
+  }
+}
+
+
+
+.about-quote-mark {
+  position: absolute;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(80px, 12vw, 160px);
+  font-weight: 700;
+  color: var(--accentColor);
+  opacity: 0.15;
+  top: -30px;
+  left: 0;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Big tilted HELLO text — inspired by reference */
+.about-hello {
+  position: absolute;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 700;
+  color: var(--accentColor);
+  opacity: 0;
+  left: -5%;
+  top: -10%;
+  transform: rotate(-8deg);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  animation: helloAppear 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes helloAppear {
+  0% {
+    opacity: 0;
+    transform: rotate(-8deg) translateY(30px) scale(0.8);
+  }
+  60% {
+    opacity: 0.2;
+    transform: rotate(-6deg) translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 0.12;
+    transform: rotate(-5deg) translateY(0) scale(1);
+  }
+}
+
+/* Decorative circle in about */
+.about-doodle-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--accentColor);
+  border-radius: 50%;
+  opacity: 0.2;
+  right: 10%;
+  top: 20%;
+  pointer-events: none;
+  animation: floatDoodle 6s ease-in-out infinite;
+}
+
+/* Arrow doodle */
+.about-doodle-arrow {
+  position: absolute;
+  font-size: 28px;
+  color: var(--secondaryAccent);
+  opacity: 0.4;
+  right: 5%;
+  bottom: 30%;
+  pointer-events: none;
+  user-select: none;
+  animation: floatDoodle 4s ease-in-out infinite reverse;
+  transform: rotate(-30deg);
+}
+
+@keyframes floatDoodle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(10deg); }
+}

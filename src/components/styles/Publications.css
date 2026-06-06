@@ -1,0 +1,189 @@
+.publications-section {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: 0 auto;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.pub-deco {
+  position: absolute;
+  font-size: 180px;
+  color: var(--tertiaryAccent);
+  opacity: 0.06;
+  top: 60px;
+  right: 5%;
+  pointer-events: none;
+  user-select: none;
+  font-family: "Fredoka", sans-serif;
+  line-height: 1;
+}
+
+.pub-container {
+  position: relative;
+  z-index: 1;
+}
+
+.pub-heading {
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+  color: var(--textColor);
+}
+
+.pub-heading span {
+  color: var(--tertiaryAccent);
+  font-style: italic;
+}
+
+.pub-subheading {
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  opacity: 0.5;
+  margin: 0 0 60px 0;
+  letter-spacing: 1px;
+  color: var(--textColor);
+}
+
+/* 2x2 grid */
+.pub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .pub-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Newspaper card */
+.pub-card {
+  background-color: #fdf8f0;
+  position: relative;
+  filter: drop-shadow(3px 5px 0px rgba(0,0,0,0.12));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.pub-card:hover {
+  transform: rotate(-0.5deg) translateY(-4px);
+  filter: drop-shadow(5px 8px 0px rgba(0,0,0,0.18));
+}
+
+.pub-card:nth-child(even) {
+  transform: rotate(0.4deg);
+}
+
+.pub-card:nth-child(even):hover {
+  transform: rotate(-0.3deg) translateY(-4px);
+}
+
+/* Torn edge top */
+.pub-torn-top {
+  width: 100%;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='12'%3E%3Cpath d='M0,0 Q12,12 24,4 Q36,0 48,8 Q60,12 72,3 Q84,0 96,7 Q108,12 120,2 Q132,0 144,8 Q156,12 168,3 Q180,0 192,7 Q204,12 216,2 Q228,0 240,6 Q252,12 264,3 Q276,0 288,7 Q300,12 312,2 Q324,0 336,6 Q348,12 360,3 Q372,0 384,7 Q396,12 408,2 Q420,0 432,6 Q444,12 456,3 Q468,0 480,7 Q492,12 504,2 Q516,0 528,6 Q540,12 552,3 Q564,0 576,7 L576,0 Z' fill='%23f5f0e8'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+.pub-torn-bottom {
+  width: 100%;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='12'%3E%3Cpath d='M0,12 Q12,0 24,8 Q36,12 48,4 Q60,0 72,9 Q84,12 96,5 Q108,0 120,10 Q132,12 144,4 Q156,0 168,9 Q180,12 192,5 Q204,0 216,10 Q228,12 240,6 Q252,0 264,9 Q276,12 288,5 Q300,0 312,10 Q324,12 336,6 Q348,0 360,9 Q372,12 384,5 Q396,0 408,10 L408,12 Z' fill='%23f5f0e8'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+.pub-card-inner {
+  padding: 24px 28px;
+  border-left: 4px solid var(--tertiaryAccent);
+  margin: 0 6px;
+  position: relative;
+}
+
+/* Faint ruled lines background */
+.pub-card-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(0,0,0,0.06) 28px
+  );
+  pointer-events: none;
+}
+
+/* Tag pill */
+.pub-tag {
+  display: inline-block;
+  background-color: var(--tertiaryAccent);
+  color: var(--backgroundColor);
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 2px 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Venue */
+.pub-venue {
+  font-family: "Caveat", cursive;
+  font-size: 15px;
+  opacity: 0.6;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+/* Title */
+.pub-title {
+  font-family: "Caveat", cursive;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 20px 0;
+  color: inherit;
+}
+
+.pub-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(0,0,0,0.15);
+  padding-top: 12px;
+}
+
+.pub-year {
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+.pub-link {
+  font-family: "Caveat", cursive;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--tertiaryAccent);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--tertiaryAccent);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+
+.pub-link:hover {
+  opacity: 0.7;
+  color: var(--tertiaryAccent);
+}
+
+@media (max-width: 900px) {
+  .publications-section {
+    padding: 80px 0 60px;
+  }
+}
