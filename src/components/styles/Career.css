@@ -260,38 +260,116 @@
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .career-section {
+    padding: 60px 16px;
+    margin-bottom: 80px;
+  }
+
+  .career-section h2 {
+    font-size: clamp(28px, 7vw, 50px);
+    margin-bottom: 40px;
+  }
+
+  .career-info-box {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+  }
+
+  .career-info-in,
+  .career-info-box p {
+    width: 100%;
+  }
+
+  .career-info h3 {
+    font-size: 32px;
+    opacity: 0.08;
+  }
+
+  .career-info h4 {
+    font-size: 16px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .career-info {
     margin: 0;
   }
 
+  .career-section {
+    padding: 50px 16px;
+    margin: 0;
+    align-items: flex-start;
+  }
+
   .career-section h2 {
     width: 100%;
-    font-size: 46px;
-    line-height: 0.92;
-    letter-spacing: -2px;
-    margin-top: 0px;
+    font-size: clamp(24px, 6vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0 0 20px 0;
   }
 
-  .career-info-in {
-    gap: 0px;
+  .career-section h2::after {
+    width: 60px;
+    height: 4px;
+    margin: 8px 0 0 0;
   }
 
-  .career-info h3 {
-    font-size: 33px;
+  .career-info-box {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(26, 18, 8, 0.06);
+  }
+
+  .career-info-box:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
   .career-info-in,
   .career-info-box p {
-    padding-left: 5%;
+    width: 100%;
+    padding-left: 0;
   }
 
-  .career-section {
-    padding-top: 90px;
-    margin-top: 0px;
-    align-items: start;
-    place-items: inherit;
-    justify-content: left;
+  .career-info h3 {
+    font-size: 24px;
+    opacity: 0.1;
+    display: none;
+  }
+
+  .career-info h4 {
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .career-info h5 {
+    font-size: 11px;
+    margin: 4px 0;
+  }
+
+  .career-info-box p {
+    font-size: 13px;
+    line-height: 1.5;
+    opacity: 0.6;
+  }
+
+  .career-timeline {
+    display: none;
+  }
+
+  /* Hide all decorative elements */
+  .career-doodle-star,
+  .career-accent-line,
+  .career-doodle-ring,
+  .career-bg-text {
+    display: none !important;
   }
 }
 

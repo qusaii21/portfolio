@@ -1,4 +1,7 @@
 import "./styles/Education.css";
+import { MdSchool } from "react-icons/md";
+import { FiBook } from "react-icons/fi";
+import { MdEdit } from "react-icons/md";
 
 const education = [
   {
@@ -7,7 +10,7 @@ const education = [
     period: "2022 – 2026",
     grade: "CGPA: 8.74",
     note: "Specializing in AI, ML, deep learning, and full-stack development.",
-    emoji: "🎓"
+    icon: <MdSchool />
   },
   {
     degree: "HSC — Science",
@@ -15,7 +18,7 @@ const education = [
     period: "2022",
     grade: "75.50%",
     note: "Maharashtra State Board.",
-    emoji: "📚"
+    icon: <FiBook />
   },
   {
     degree: "ICSE — Grade 10",
@@ -23,7 +26,7 @@ const education = [
     period: "2020",
     grade: "92.6%",
     note: "Council for the Indian School Certificate Examinations.",
-    emoji: "✏️"
+    icon: <MdEdit />
   }
 ];
 
@@ -41,7 +44,7 @@ const Education = () => {
         <div className="edu-list">
           {education.map((item, i) => (
             <div className="edu-card" key={i}>
-              <div className="edu-emoji">{item.emoji}</div>
+              <div className="edu-icon">{item.icon}</div>
               <div className="edu-card-body">
                 <div className="edu-card-top">
                   <div>

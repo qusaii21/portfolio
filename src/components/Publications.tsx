@@ -1,4 +1,5 @@
 import "./styles/Publications.css";
+import { MdStarRate } from "react-icons/md";
 
 interface Publication {
   title: string;
@@ -42,7 +43,7 @@ const publications: Publication[] = [
 const Publications = () => {
   return (
     <section className="publications-section" id="publications">
-      <span className="pub-deco" aria-hidden="true">★</span>
+      <MdStarRate className="pub-deco" aria-hidden="true" />
       <div className="pub-container">
         <h2 className="pub-heading">
           Research & <span>Publications</span>

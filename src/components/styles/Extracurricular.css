@@ -127,11 +127,21 @@
   opacity: 0.5;
 }
 
-.cube-emoji {
+.cube-icon {
   font-size: clamp(24px, 4vw, 40px);
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
   z-index: 2;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cube-icon svg {
+  width: 100%;
+  height: 100%;
+  max-width: 40px;
+  max-height: 40px;
 }
 
 /* ── Color Variants ── */
@@ -256,47 +266,67 @@
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .extra-section {
-    padding: 80px 0 60px;
+    padding: 60px 16px 40px;
   }
 
-  .cube {
-    width: 60px;
-    height: 60px;
+  .extra-heading {
+    font-size: clamp(28px, 7vw, 48px);
+  }
+
+  .extra-subheading {
+    font-size: 16px;
+    margin-bottom: 30px;
   }
 
   .building-row {
     gap: 4px;
-    margin-top: -6px;
+    margin-top: -4px;
   }
 
-  .cube-popup {
-    width: 180px;
-    padding: 12px 14px;
-    bottom: calc(100% + 8px);
-  }
-
-  .cube-title {
-    font-size: 13px;
-  }
-
-  .cube-note {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
+  /* Fix cube sizing for mobile - prevent min-size from exceeding viewport */
   .cube {
-    width: 50px;
-    height: 50px;
+    width: clamp(50px, 9vw, 100px);
+    height: clamp(50px, 9vw, 100px);
   }
 
-  .cube-emoji {
-    font-size: 20px;
+  .cube-icon svg {
+    max-width: 24px;
+    max-height: 24px;
   }
 
   .cube-popup {
     width: 160px;
+    padding: 12px 14px;
+    bottom: calc(100% + 6px);
+  }
+
+  .cube-title {
     font-size: 12px;
+  }
+
+  .cube-note {
+    font-size: 12px;
+  }
+
+  .cube-tag {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cube {
+    width: clamp(45px, 8vw, 85px);
+    height: clamp(45px, 8vw, 85px);
+  }
+
+  .building-row {
+    gap: 3px;
+    margin-top: -3px;
+  }
+
+  .cube-popup {
+    width: 150px;
+    font-size: 11px;
   }
 }
 

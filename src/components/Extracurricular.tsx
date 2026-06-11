@@ -1,29 +1,31 @@
 import { useState } from "react";
 import "./styles/Extracurricular.css";
+import { MdEmojiEvents, MdOutlineRocket, MdPublic, MdLightbulb, MdFlare, MdPalette, MdPeople, MdRecordVoiceOver, MdLanguage } from "react-icons/md";
+import { FiFlag } from "react-icons/fi";
 
 interface ExtraItem {
   title: string;
   note: string;
   tag: string;
-  emoji: string;
+  icon: React.ReactNode;
 }
 
 const extras: ExtraItem[] = [
-  { emoji: "🏆", title: "Uptiq AI Hackathon", note: "1st Runner-Up. Multi-agent vulnerability scanner with CrewAI.", tag: "Winner" },
-  { emoji: "🏆", title: "DevClash @ DY Patil", note: "Winner. MediClear — LLM-powered health platform.", tag: "Winner" },
-  { emoji: "🚀", title: "Inspiron 4.0 @ COEP", note: "Top 30/200+. NL to optimized SQL using multi-agent RAG.", tag: "Top 30" },
-  { emoji: "🌍", title: "TE Connectivity AI Cup", note: "International Finalist. MBD model annotation with CV.", tag: "Finalist" },
-  { emoji: "🇮🇳", title: "Smart India Hackathon", note: "Water quality AI for Ganga River Basin.", tag: "Selected" },
-  { emoji: "💡", title: "Hult Prize @ MIT-WPU", note: "Sustainable & ethical clothing platform.", tag: "Competitor" },
-  { emoji: "⚡", title: "IEEE Project Head", note: "Shipped app on Play Store & App Store. AI workshop for 200+.", tag: "2024–25" },
-  { emoji: "⚡", title: "IEEE Exec Committee", note: "Hackathons, DevOps workshops, PR & outreach.", tag: "2023–24" },
-  { emoji: "🎨", title: "Design Coordinator", note: "Posters & digital content for Abhivriddhi SDC.", tag: "2022–23" },
-  { emoji: "🤝", title: "Eaton Changing Gears", note: "Mentored 15 first-year students.", tag: "Mentor" },
-  { emoji: "🎙️", title: "Director VPMUN 2025", note: "Chaired 40+ delegates. AI-generated media.", tag: "Director" },
-  { emoji: "🎙️", title: "Director VPMUN 2024", note: "Chaired 40+ delegates. Gender digital divide.", tag: "Director" },
-  { emoji: "🎙️", title: "USG — VIT Pune MUN", note: "250+ participants across 7 committees.", tag: "2023–24" },
-  { emoji: "🌐", title: "PICT MUN — Japan", note: "Honorable Mention. Xenophobia in Europe.", tag: "🏅 Honors" },
-  { emoji: "🌐", title: "SIMS MUN — Iraq", note: "Verbal Mention. UNSC reforms.", tag: "Mention" },
+  { icon: <MdEmojiEvents />, title: "Uptiq AI Hackathon", note: "1st Runner-Up. Multi-agent vulnerability scanner with CrewAI.", tag: "Winner" },
+  { icon: <MdEmojiEvents />, title: "DevClash @ DY Patil", note: "Winner. MediClear — LLM-powered health platform.", tag: "Winner" },
+  { icon: <MdOutlineRocket />, title: "Inspiron 4.0 @ COEP", note: "Top 30/200+. NL to optimized SQL using multi-agent RAG.", tag: "Top 30" },
+  { icon: <MdPublic />, title: "TE Connectivity AI Cup", note: "International Finalist. MBD model annotation with CV.", tag: "Finalist" },
+  { icon: <FiFlag />, title: "Smart India Hackathon", note: "Water quality AI for Ganga River Basin.", tag: "Selected" },
+  { icon: <MdLightbulb />, title: "Hult Prize @ MIT-WPU", note: "Sustainable & ethical clothing platform.", tag: "Competitor" },
+  { icon: <MdFlare />, title: "IEEE Project Head", note: "Shipped app on Play Store & App Store. AI workshop for 200+.", tag: "2024–25" },
+  { icon: <MdFlare />, title: "IEEE Exec Committee", note: "Hackathons, DevOps workshops, PR & outreach.", tag: "2023–24" },
+  { icon: <MdPalette />, title: "Design Coordinator", note: "Posters & digital content for Abhivriddhi SDC.", tag: "2022–23" },
+  { icon: <MdPeople />, title: "Eaton Changing Gears", note: "Mentored 15 first-year students.", tag: "Mentor" },
+  { icon: <MdRecordVoiceOver />, title: "Director VPMUN 2025", note: "Chaired 40+ delegates. AI-generated media.", tag: "Director" },
+  { icon: <MdRecordVoiceOver />, title: "Director VPMUN 2024", note: "Chaired 40+ delegates. Gender digital divide.", tag: "Director" },
+  { icon: <MdRecordVoiceOver />, title: "USG — VIT Pune MUN", note: "250+ participants across 7 committees.", tag: "2023–24" },
+  { icon: <MdLanguage />, title: "PICT MUN — Japan", note: "Honorable Mention. Xenophobia in Europe.", tag: "🏅 Honors" },
+  { icon: <MdLanguage />, title: "SIMS MUN — Iraq", note: "Verbal Mention. UNSC reforms.", tag: "Mention" },
 ];
 
 // Colors assigned in a cycle
@@ -78,7 +80,7 @@ const Extracurricular = () => {
                     <div className="cube-box">
                       <div className="cube-face cube-top"></div>
                       <div className="cube-face cube-front">
-                        <span className="cube-emoji">{item.emoji}</span>
+                        <span className="cube-icon">{item.icon}</span>
                       </div>
                       <div className="cube-face cube-right"></div>
                     </div>

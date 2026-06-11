@@ -71,23 +71,56 @@
   display: block;
 }
 
-@media only screen and (min-width: 600px) {
+@media (max-width: 768px) {
   .about-section {
-    justify-content: center;
+    padding: 0 16px;
+    height: auto;
+    margin: auto;
   }
 
   .about-me {
-    width: 500px;
+    padding: 40px 0;
+    width: 100%;
+    max-width: 100%;
   }
 
   .about-me h3 {
-    font-size: 12px;
-    letter-spacing: 4px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    margin-bottom: 16px;
   }
 
   .about-me p {
-    font-size: 26px;
-    line-height: 1.4;
+    font-size: clamp(16px, 5vw, 24px);
+    line-height: 1.5;
+    word-spacing: 0.5px;
+  }
+
+  .about-quote-mark {
+    font-size: clamp(60px, 10vw, 100px);
+    top: -20px;
+    left: -5px;
+  }
+
+  .about-hello {
+    font-size: clamp(40px, 8vw, 80px);
+    top: -8%;
+    left: -10%;
+  }
+
+  .about-doodle-circle,
+  .about-doodle-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-me {
+    padding: 32px 0;
+  }
+
+  .about-me p {
+    font-size: clamp(15px, 4.5vw, 20px);
   }
 }
 
