@@ -35,7 +35,7 @@ const ClientWork = () => {
         </div>
 
         <div className="clientwork-grid">
-          {webApps.map((project, index) => (
+          {webApps.map((project) => (
             <a
               href={project.url}
               target="_blank"
@@ -44,7 +44,6 @@ const ClientWork = () => {
               key={project.id}
               data-cursor="disable"
             >
-              <div className="cw-card-number">0{index + 1}</div>
               <div className="cw-card-image">
                 <img
                   src={shot(project.url)}

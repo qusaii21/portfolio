@@ -208,14 +208,6 @@ export const config = {
                 tags: ["Catalogue", "Industrial", "B2B"]
             },
             {
-                id: 9,
-                title: "Classic Acrylic House",
-                category: "Product Showcase",
-                url: "https://classicacrylichouse.com/",
-                description: "A visual showcase site for an acrylic products & home décor business, presenting the full product range.",
-                tags: ["Product Showcase", "Retail"]
-            },
-            {
                 id: 10,
                 title: "Shere Bangla Groningen",
                 category: "Restaurant / Hospitality",
@@ -238,7 +230,7 @@ export const config = {
                 title: "IEEE SB VIT Pune",
                 category: "Community / Events",
                 platform: "Android · Google Play",
-                image: "/images/ieee-app.png",
+                image: "/images/ieee-app.webp",
                 url: "https://play.google.com/store/apps/details?id=com.ieeeofficialapp.ieee_official_app&hl=en_IN",
                 description: "Official app for IEEE Student Branch VIT Pune with 250+ active users — real-time admin CRUD panel and QR-based attendance ingestion via Cloud Functions writing directly to Firestore.",
                 tags: ["Flutter", "Firebase", "Cloud Functions"]
@@ -248,8 +240,8 @@ export const config = {
                 title: "Sofiya Properties",
                 category: "Real Estate",
                 platform: "Android & iOS",
-                image: "/images/sofiya.png",
-                url: "https://play.google.com/store/search?q=Sofiya%20Properties&c=apps",
+                image: "/images/sofiya-app.webp",
+                url: "https://play.google.com/store/apps/details?id=com.sofiyaproperties.sofiya_properties",
                 description: "A real estate app shipped on both Google Play Store and Apple App Store — property listings, search, and inquiry flow, built with a 6-member team as Project Head.",
                 tags: ["Flutter", "Firebase", "Dart"]
             }
