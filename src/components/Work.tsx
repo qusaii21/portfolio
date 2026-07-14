@@ -62,6 +62,9 @@ const Work = () => {
           <Link to="/myworks" className="see-all-btn" data-cursor="disable">
             See All Works →
           </Link>
+          <Link to="/client-work" className="see-all-btn see-all-btn-secondary" data-cursor="disable">
+            Client Portfolio →
+          </Link>
         </div>
       </div>
     </div>

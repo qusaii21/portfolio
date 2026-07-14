@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
+import { Link } from "react-router-dom";
 import "./styles/Navbar.css";
 import { config } from "../config";
 
@@ -87,6 +88,11 @@ const Navbar = () => {
             <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
             </a>
+          </li>
+          <li>
+            <Link to="/client-work" data-cursor="disable">
+              <HoverLinks text="PORTFOLIO" />
+            </Link>
           </li>
           <li>
             <a data-href="#contact" href="#contact">

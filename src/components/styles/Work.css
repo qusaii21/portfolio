@@ -89,6 +89,22 @@
 .work-see-all {
   text-align: center;
   margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.see-all-btn-secondary {
+  background: transparent;
+  color: var(--tertiaryAccent);
+  border: 2px solid var(--tertiaryAccent);
+}
+
+.see-all-btn-secondary:hover {
+  background: var(--tertiaryAccent);
+  color: var(--backgroundColor);
 }
 
 .see-all-btn {
